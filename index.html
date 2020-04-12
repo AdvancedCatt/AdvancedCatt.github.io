@@ -59,19 +59,6 @@
     const encoder = new TextEncoder();
     const decoder = new TextDecoder('shift_jis');
 
-    const hiragana = [
-      ["あ", "い", "う", "え", "お"],
-      ["か", "き", "く", "け", "こ"],
-      ["さ", "し", "す", "せ", "そ"],
-      ["た", "ち", "つ", "て", "と"],
-      ["な", "に", "ぬ", "ね", "の"]
-      ["は", "ひ", "ふ", "へ", "ほ"],
-      ["ま", "み", "む", "め", "も"],
-      ["や", "ゆ", "よ"],
-      ["ら", "り", "る", "れ", "ろ"],
-      ["わ", "を", "ん"]
-    ]; 
-
     document.getElementById('convertButton').onclick = () => {
       const nodes = document.getElementsByName('encryptType');
       const input = document.getElementById('inputTextArea').value.replace(/\n/gm, '');
@@ -87,7 +74,6 @@
       } else if (mode == 'lllllll') {
         output = lllllll(input);
       }
-
       document.getElementById('outputTextArea').value = output;
     };
 
@@ -105,10 +91,6 @@
 
     function strawberry(value) {
       return escape(value).replace(/%u/g, '');
-    }
-
-    function original(value) {
-      const normalize = Array.from(value.normalize("NFD"))
     }
   </script>
 </html>
